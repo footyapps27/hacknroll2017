@@ -80,7 +80,7 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
             public void onClick(View view) {
                 if (PermissionUtil.checkCameraPermission(getActivity())) {
                     Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    getActivity().startActivityForResult(takePicture, REQUEST_CAMERA);
+                    startActivityForResult(takePicture, REQUEST_CAMERA);
                 }
             }
         });
@@ -135,7 +135,6 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
 
         // create alert dialog
         AlertDialog alertDialog = alertDialogBuilder.create();
-
         // show it
         alertDialog.show();
     }
