@@ -12,9 +12,6 @@ import roll.hack.iss.hackroll2017.ui.base.BaseActivity;
  */
 
 public class ReceipeDetailActivity extends BaseActivity {
-    @Bind(R.id.result_listview)
-    protected ListView resultListView;
-    private ResultListAdapter resultListAdapter;
 
     @Override
     protected void initComponent() {
