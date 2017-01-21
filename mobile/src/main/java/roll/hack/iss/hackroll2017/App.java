@@ -16,7 +16,7 @@ import roll.hack.iss.hackroll2017.model.Recipe;
  * Created by Suba Raj on 1/21/2017.
  */
 
-public class App extends Application implements TextToSpeech.OnInitListener {
+public class App extends Application{
     public RequestQueue queue;//only create one queue during the volley life
 
     //application Context scope parameter
@@ -39,7 +39,7 @@ public class App extends Application implements TextToSpeech.OnInitListener {
     public void onCreate() {
         super.onCreate();
         mInstance = this;
-        mTextToSpeech = new TextToSpeech(mInstance, this);
+       // mTextToSpeech = new TextToSpeech(mInstance, this);
         initVolleySetting();
     }
 
@@ -60,22 +60,22 @@ public class App extends Application implements TextToSpeech.OnInitListener {
     /****************************/
     public void onInit(int initStatus) {
         if (initStatus == TextToSpeech.SUCCESS) {
-            mTextToSpeech.setLanguage(Locale.US);
-            mTextToSpeech.setSpeechRate(0.8f);
+            /*mTextToSpeech.setLanguage(Locale.US);
+            mTextToSpeech.setSpeechRate(0.8f);*/
         }
     }
 
     /****************************/
     // Public Methods
     /****************************/
-    public void speak(String textToSpeak) {
+   /* public void speak(String textToSpeak) {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mTextToSpeech.speak(textToSpeak, TextToSpeech.QUEUE_ADD, null, null);
         }
         else {
             mTextToSpeech.speak(textToSpeak, TextToSpeech.QUEUE_ADD, null);
         }
-    }
+    }*/
 
     public ArrayList<Recipe> getMockData() {
         updateMockData();
