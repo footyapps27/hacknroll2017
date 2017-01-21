@@ -91,7 +91,8 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
         if (requestCode == REQUEST_CAMERA) {
             if (resultCode == Activity.RESULT_OK) {
                 Bitmap bmp = (Bitmap) data.getExtras().get("data");
-                //TODO mock data here
+                //TODO Call API to get the data here & pass the same to the speech recognition
+                App.getInstance().speak("I have found the following ingredients: Egg, Broccoli, Chicken, Tomato, Onion. Searching for recipes");
             }
         } else {
             mTextToSpeechUtility.receivedOnActivityResult(this, requestCode, resultCode);

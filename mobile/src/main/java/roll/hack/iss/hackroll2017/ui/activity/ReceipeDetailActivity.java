@@ -26,8 +26,14 @@ public class ReceipeDetailActivity extends BaseActivity {
     @Bind(R.id.reciepe_instruction)
     TextView reciepe_instruction;
 
+    private Recipe mRecipe;
 
-
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        App.getInstance().speak(mRecipe.getDetailedSteps());
+    }
+    
     @Override
     protected void initComponent() {
 
@@ -42,12 +48,12 @@ public class ReceipeDetailActivity extends BaseActivity {
         reciepe_instruction.setText(recipe1.getDetailedSteps());
 */      Bundle args = this.getIntent().getExtras();
         // getting attached intent data
-        Recipe recipe = (Recipe) args.get("recipe");
+        mRecipe = (Recipe) args.get("recipe");
         // displaying selected product name
-        reciepe_instruction.setText(recipe.getDetailedSteps());
+        reciepe_instruction.setText(mRecipe.getDetailedSteps());
         final ImageView imageView = receipeImage;
         ImageRequest imageRequest = new ImageRequest(
-                recipe.getImgPath(),
+                mRecipe.getImgPath(),
 
                 new Response.Listener<Bitmap>() {
                     @Override
