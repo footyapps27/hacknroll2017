@@ -8,8 +8,9 @@
 
     <ImageView
         android:id="@+id/receipe_image"
-        android:layout_width="100dp"
+        android:layout_width="80dp"
         android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerVertical="true"
         android:src="@mipmap/ic_launcher" />
 
@@ -26,7 +27,7 @@
         <LinearLayout
             android:id="@+id/rating"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
             android:orientation="horizontal">
 
         </LinearLayout>
@@ -44,8 +45,8 @@
         android:id="@+id/first_column"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerInParent="true"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -54,6 +55,8 @@
             style="@style/ReceiptListTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
             android:text="Fried Chicken" />
 
         <TextView

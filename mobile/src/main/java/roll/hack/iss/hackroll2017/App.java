@@ -1,12 +1,14 @@
 package roll.hack.iss.hackroll2017;
 
 import android.app.Application;
+import android.os.Build;
 import android.speech.tts.TextToSpeech;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import roll.hack.iss.hackroll2017.model.Recipe;
 
