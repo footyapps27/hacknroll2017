@@ -3,5 +3,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/reciepe_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/photo_camera"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="Instruction"
+            android:textSize="20dp"/>
+        <TextView
+            android:padding="20dp"
+            android:textStyle="bold"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="50dp"
+            android:id="@+id/reciepe_instruction"
+            android:layout_width="match_parent"
+            android:layout_weight="2"
+            android:text="Step 1: Heat olive oil on medium heat in a nonstick skillet
+        Step 2: Add the onions and cook until translucent, just starting to turn golden in color, about 6 minutes
+        Step 3: Add the tomatoes and cook over low heat until the liquid evaporates, about 40 minutes
+        Step 4: Whisk the eggs in a bowl until well blended.  Season with a little salt and pepper
+        Step 5: Add the eggs to the tomato and cook over medium heat, stirring constantly, and scraping from the bottom with a wooden spoon
+        Step 6: Remove from heat as soon as the eggs begin to set, but are still moist, about 3 minutes.  Turn out onto a serving plate
+        Step 7: Serve immediately"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

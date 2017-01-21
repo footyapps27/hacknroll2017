@@ -1,6 +1,8 @@
 package roll.hack.iss.hackroll2017.ui.activity;
 
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import butterknife.Bind;
 import roll.hack.iss.hackroll2017.R;
@@ -13,8 +15,20 @@ import roll.hack.iss.hackroll2017.ui.base.BaseActivity;
 
 public class ReceipeDetailActivity extends BaseActivity {
 
+    @Bind(R.id.result_listview)
+    protected ListView resultListView;
+    private ResultListAdapter resultListAdapter;
+    @Bind(R.id.reciepe_image)
+    ImageView receipeImage;
+    @Bind(R.id.reciepe_instruction)
+    TextView reciepe_instruction;
+
+
+
     @Override
     protected void initComponent() {
+        
+
 
     }
 
