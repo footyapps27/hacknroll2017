@@ -8,7 +8,7 @@ import roll.hack.iss.hackroll2017.R;
 import roll.hack.iss.hackroll2017.ui.base.BaseSingleFragmentActivity;
 import roll.hack.iss.hackroll2017.ui.fragment.DashboardFragment;
 import roll.hack.iss.hackroll2017.ui.fragment.FavoriteFragment;
-import roll.hack.iss.hackroll2017.ui.fragment.ProfileFragment;
+import roll.hack.iss.hackroll2017.ui.fragment.profileFragment;
 
 /**
  * Created by Suba Raj on 1/21/2017.
@@ -31,7 +31,7 @@ public class DashboardActivity extends BaseSingleFragmentActivity implements Vie
             case FRAG_MAIN:
                 return new DashboardFragment();
             case FRAG_PROFILE:
-                return new ProfileFragment();
+                return new profileFragment();
             case FRAG_FAVORITE:
                 return new FavoriteFragment();
             default:

@@ -16,7 +16,7 @@ import roll.hack.iss.hackroll2017.ui.base.BaseFragment;
  * Created by linby on 21/01/2017.
  */
 
-public class ProfileFragment extends BaseFragment{
+public class profileFragment extends BaseFragment{
     @Bind(R.id.graph)
     GraphView graph;
 
