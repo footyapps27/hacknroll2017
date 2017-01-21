@@ -31,6 +31,8 @@ public class App extends Application{
 
     public ArrayList<Recipe> mMockRecipes;
 
+    public boolean blAlreadyExecuted;
+
     /****************************/
     // App Lifecycle
     /****************************/
