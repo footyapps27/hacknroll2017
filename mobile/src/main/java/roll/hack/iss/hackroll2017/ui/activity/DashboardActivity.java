@@ -8,7 +8,7 @@ import butterknife.Bind;
 import roll.hack.iss.hackroll2017.R;
 import roll.hack.iss.hackroll2017.ui.base.BaseActivity;
 import roll.hack.iss.hackroll2017.ui.base.BaseSingleFragmentActivity;
-import roll.hack.iss.hackroll2017.ui.fragment.DashBoardFragment;
+import roll.hack.iss.hackroll2017.ui.fragment.DashboardFragment;
 import roll.hack.iss.hackroll2017.ui.fragment.ProfileFragment;
 
 /**
@@ -30,7 +30,7 @@ public class DashboardActivity extends BaseSingleFragmentActivity implements Vie
     protected Fragment createFragment(String tag) {
         switch (tag) {
             case FRAG_MAIN:
-                return new DashBoardFragment();
+                return new DashboardFragment();
             case FRAG_PROFILE:
                 return new ProfileFragment();
             case FRAG_FAVORITE:

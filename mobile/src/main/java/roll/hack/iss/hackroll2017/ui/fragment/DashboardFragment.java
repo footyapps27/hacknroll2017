@@ -10,7 +10,7 @@ import roll.hack.iss.hackroll2017.utility.TextToSpeechUtility;
  * Created by linby on 21/01/2017.
  */
 
-public class DashBoardFragment extends BaseFragment {
+public class DashboardFragment extends BaseFragment {
 
     private TextToSpeechUtility mTextToSpeechUtility;
 
