@@ -110,4 +110,9 @@ public class DashboardActivity extends BaseSingleFragmentActivity implements Vie
             }
         }
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+    }
 }

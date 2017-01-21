@@ -80,7 +80,7 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
             public void onClick(View view) {
                 if (PermissionUtil.checkCameraPermission(getActivity())) {
                     Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    getActivity().startActivityForResult(takePicture, REQUEST_CAMERA);
+                    startActivityForResult(takePicture, REQUEST_CAMERA);
                 }
             }
         });
@@ -91,7 +91,8 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
         if (requestCode == REQUEST_CAMERA) {
             if (resultCode == Activity.RESULT_OK) {
                 Bitmap bmp = (Bitmap) data.getExtras().get("data");
-                //TODO mock data here
+                //TODO Call API to get the data here & pass the same to the speech recognition
+                App.getInstance().speak("I have found the following ingredients: Egg, Broccoli, Chicken, Tomato, Onion. Searching for recipes");
             }
         } else {
             mTextToSpeechUtility.receivedOnActivityResult(this, requestCode, resultCode);
