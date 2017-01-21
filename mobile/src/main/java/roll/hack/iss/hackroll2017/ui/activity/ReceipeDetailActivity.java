@@ -1,6 +1,10 @@
 package roll.hack.iss.hackroll2017.ui.activity;
 
+import android.widget.ListView;
+
+import butterknife.Bind;
 import roll.hack.iss.hackroll2017.R;
+import roll.hack.iss.hackroll2017.adapter.ResultListAdapter;
 import roll.hack.iss.hackroll2017.ui.base.BaseActivity;
 
 /**
@@ -8,6 +12,9 @@ import roll.hack.iss.hackroll2017.ui.base.BaseActivity;
  */
 
 public class ReceipeDetailActivity extends BaseActivity {
+    @Bind(R.id.result_listview)
+    protected ListView resultListView;
+    private ResultListAdapter resultListAdapter;
 
     @Override
     protected void initComponent() {
