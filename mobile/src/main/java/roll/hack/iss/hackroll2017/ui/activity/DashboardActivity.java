@@ -26,7 +26,6 @@ public class DashboardActivity extends BaseSingleFragmentActivity implements Vie
     @Bind(R.id.linearLayout_profile)
     protected View profileView;
 
-
     @Override
     protected Fragment createFragment(String tag) {
         switch (tag) {
