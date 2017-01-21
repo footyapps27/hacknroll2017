@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Hack&amp;Roll2017</string>
+    <string name="food_name">Food Name</string>
+    <string name="edittext_name">Please enter food name</string>
+    <string name="food_quantity">Food Quantity</string>
+    <string name="edittext_quantity">please enter the amount of food</string>
+    <string name="dlg_input_title">Add Available Food</string>
 </resources>
