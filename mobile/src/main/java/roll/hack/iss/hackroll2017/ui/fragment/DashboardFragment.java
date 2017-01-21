@@ -1,42 +1,38 @@
 package roll.hack.iss.hackroll2017.ui.fragment;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.provider.MediaStore;
-import android.view.View;
-import android.widget.ImageView;
 
-import butterknife.Bind;
 import roll.hack.iss.hackroll2017.App;
 import roll.hack.iss.hackroll2017.R;
 import roll.hack.iss.hackroll2017.ui.base.BaseFragment;
-import roll.hack.iss.hackroll2017.util.PermissionUtil;
 import roll.hack.iss.hackroll2017.utility.TextToSpeechUtility;
 
 /**
  * Created by Deepak on 21/01/2017.
  */
 
-public class DashboardFragment extends BaseFragment {
+public class DashboardFragment extends BaseFragment implements View.OnClickListener {
+
+    @Bind(R.id.imageView_voice)
+    ImageView voiceButton;
 
     private TextToSpeechUtility mTextToSpeechUtility;
-    @Bind(R.id.img_camera)
-    private ImageView img_camera;
+    private ArrayList<String> voiceOutput;
+    private AlertDialog.Builder alertDialogBuilder;
+    private ListView mVoiceOutputList;
 
-    private static final int REQUEST_CAMERA = 1001;
+
 
     @Override
     public void onStart() {
         super.onStart();
 
         try {
-            if (!App.getInstance().blAlreadyExecuted) {
+            if(!App.getInstance().blAlreadyExecuted) {
                 int resID = getResources().getIdentifier("launch_audio", "raw", getActivity().getPackageName());
-                MediaPlayer mediaPlayer = MediaPlayer.create(getActivity(), resID);
+                MediaPlayer mediaPlayer = MediaPlayer.create(getActivity(),resID);
                 mediaPlayer.start();
                 App.getInstance().blAlreadyExecuted = true;
             }
@@ -54,6 +50,7 @@ public class DashboardFragment extends BaseFragment {
     protected void initComponent() {
        /* mTextToSpeechUtility = new TextToSpeechUtility();
         mTextToSpeechUtility.initializeTextToSpeech(this);*/
+        voiceButton.setOnClickListener(this);
     }
 
     @Override
@@ -80,22 +77,56 @@ public class DashboardFragment extends BaseFragment {
             mTextToSpeechUtility.receivedOnActivityResult(this, requestCode, resultCode);
             if (mTextToSpeechUtility != null) {
                 mTextToSpeechUtility.speak("Hello John, what do you want to cook today?");
+            } else if (requestCode == 1010 && resultCode == Activity.RESULT_OK) {
+//            this.mVisionOutputLayout.setVisibility(View.VISIBLE);
+                voiceOutput = data
+                        .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                resultAlertDialog();
+                resultSuccess();//            this.setFields(this.mVisionOutputList);
             }
         }
     }
 
+    public void resultAlertDialog() {
+        LayoutInflater li = LayoutInflater.from(getContext());
+        View promptsView = li.inflate(R.layout.activity_voice_result, null);
+        alertDialogBuilder = new AlertDialog.Builder(getContext());
+        alertDialogBuilder.setView(promptsView);
+
+        mVoiceOutputList = (ListView) promptsView.findViewById(R.id.voice_listview);
+
+    }
+
+    private  void resultSuccess() {
+        mVoiceOutputList.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, voiceOutput));
+        alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("Confirm",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                            }
+                        })
+                .setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+
+                            }
+                        });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+    }
+
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case PermissionUtil.REQUEST_CAMERA: {
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(takePicture, REQUEST_CAMERA);
-                }
-                break;
-            }
+    public void onClick(View view) {
+        int id = view.getId();
+        switch (id) {
+            case R.id.imageView_voice:
+                VoiceUtility.getVoiceInput(DashboardFragment.this);
         }
     }
-}
