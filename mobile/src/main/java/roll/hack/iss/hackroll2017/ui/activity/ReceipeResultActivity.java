@@ -24,6 +24,8 @@ public class ReceipeResultActivity extends BaseActivity{
     @Override
     protected void initData() {
 
+
+
     }
 
     @Override
