@@ -91,6 +91,11 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        mTextToSpeechUtility.receivedOnActivityResult(this, requestCode, resultCode);
+//        if (mTextToSpeechUtility != null) {
+//            mTextToSpeechUtility.speak("Hello John, what do you want to cook today?");
+//        } else
+        if (requestCode == 1010 && resultCode == Activity.RESULT_OK) {
         if (requestCode == REQUEST_CAMERA) {
             if (resultCode == Activity.RESULT_OK) {
                 Bitmap bmp = (Bitmap) data.getExtras().get("data");
@@ -113,9 +118,8 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
             }
         } else {
             mTextToSpeechUtility.receivedOnActivityResult(this, requestCode, resultCode);
-            if (mTextToSpeechUtility != null) {
-                mTextToSpeechUtility.speak("Hello John, what do you want to cook today?");
-            } else if (requestCode == 1010 && resultCode == Activity.RESULT_OK) {
+
+           if (requestCode == 1010 && resultCode == Activity.RESULT_OK) {
 //            this.mVisionOutputLayout.setVisibility(View.VISIBLE);
                 voiceOutput = data
                         .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
