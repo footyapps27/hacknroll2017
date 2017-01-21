@@ -71,17 +71,10 @@ public abstract class BaseSingleFragmentActivity extends AppCompatActivity {
 
     protected void ChangeFragment(String tag) {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        Fragment fragment = fragmentManager.findFragmentByTag(tag);
-        if (fragment == null) {
-            // Get the fragment that needs to be added.
-            fragment = createFragment(tag);
-            fragmentManager.beginTransaction()
-                    .add(getFragmentContainer(), fragment)
-                    .commit();
-        } else {
-//            fragmentManager.beginTransaction().replace(getFragmentContainer(),fragment).commit();
-            fragmentManager.beginTransaction().show(fragmentManager.findFragmentByTag(tag)).commit();
-        }
+        Fragment fragment = createFragment(tag);
+        fragmentManager.beginTransaction()
+                .replace(getFragmentContainer(), fragment)
+                .commit();
     }
 
     /**
