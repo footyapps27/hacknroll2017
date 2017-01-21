@@ -18,14 +18,12 @@ import roll.hack.iss.hackroll2017.ui.base.BaseFragment;
 public class DashboardFragment extends BaseFragment implements View.OnClickListener{
     @Bind(R.id.photo_camera)
     ImageView photoCamera;
-    @Bind(R.id.linearLayout_favorite)
+    @Bind(R.id.favorite)
     ImageView favourite;
-    @Bind(R.id.linearLayout_profile)
+    @Bind(R.id.profile)
     ImageView profile;
-    @Bind(R.id.linearLayout_home)
+    @Bind(R.id.home)
     ImageView home;
-
-
 
     public DashboardFragment() {
     }

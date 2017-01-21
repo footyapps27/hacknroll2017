@@ -10,7 +10,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
-            android:id="@+id/layput_input1"
+            android:id="@+id/layout_input1"
             android:layout_height="wrap_content">
 
         <ImageView
@@ -24,6 +24,7 @@
             android:background="@drawable/round_background"
             android:src="@drawable/microphone"/>
         <ImageView
+            android:id="@+id/imageView_tbd"
             android:layout_width="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_weight="1"
@@ -49,7 +50,7 @@
         android:orientation="horizontal"
         android:layout_marginTop="200dp"
         android:gravity="center"
-        android:layout_below="@id/layput_input1"
+        android:layout_below="@id/layout_input1"
         android:layout_height="wrap_content">
 
         <ImageView

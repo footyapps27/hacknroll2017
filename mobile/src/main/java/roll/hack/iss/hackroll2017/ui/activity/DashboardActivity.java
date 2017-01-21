@@ -2,6 +2,7 @@ package roll.hack.iss.hackroll2017.ui.activity;
 
 import android.support.v4.app.Fragment;
 
+import roll.hack.iss.hackroll2017.R;
 import roll.hack.iss.hackroll2017.ui.base.BaseSingleFragmentActivity;
 import roll.hack.iss.hackroll2017.ui.fragment.DashboardFragment;
 
@@ -22,11 +23,11 @@ public class DashboardActivity extends BaseSingleFragmentActivity {
 
     @Override
     protected int getLayoutId() {
-        return 0;
+        return R.layout.activity_dashboard;
     }
 
     @Override
     protected int getFragmentContainer() {
-        return 0;
+        return R.id.activity_dashboard;
     }
 }
