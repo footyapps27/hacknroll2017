@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
-import roll.hack.iss.hackroll2017.R;
+
 
 
 public abstract class BaseFragment extends Fragment {
