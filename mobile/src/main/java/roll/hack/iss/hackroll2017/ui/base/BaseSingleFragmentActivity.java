@@ -92,14 +92,14 @@ public abstract class BaseSingleFragmentActivity extends AppCompatActivity {
      *
      * @param msg
      */
-    protected void showProgressDialog(String msg) {
+    public void showProgressDialog(String msg) {
         pDlg = ProgressDialog.show(mActivity, "Progressing", msg);
     }
 
     /**
      * dismiss single dialog
      */
-    protected void dismissProgressDialog() {
+    public void dismissProgressDialog() {
         if (pDlg != null) {
             pDlg.dismiss();
         }

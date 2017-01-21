@@ -50,11 +50,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(getLayoutId());
     }
 
-    protected void showProgressDialog(String title, String msg) {
+    public void showProgressDialog(String title, String msg) {
         pDlg = ProgressDialog.show(mActivity, title, msg);
     }
 
-    protected void showProgressDialog(String msg) {
+    public void showProgressDialog(String msg) {
         pDlg = ProgressDialog.show(mActivity, "Progressing", msg);
     }
 
@@ -77,7 +77,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         inputMethodManager.showSoftInput(view, 0);
     }
 
-    protected void dismissProgressDialog() {
+    public void dismissProgressDialog() {
         if (pDlg != null) {
             pDlg.dismiss();
         }

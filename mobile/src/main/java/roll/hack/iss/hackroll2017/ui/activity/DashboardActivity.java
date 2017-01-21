@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
@@ -115,13 +116,28 @@ public class DashboardActivity extends BaseSingleFragmentActivity implements Vie
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        super.onActivityResult(requestCode, resultCode, intent);
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == DashboardFragment.REQUEST_CAMERA) {
             if (resultCode == Activity.RESULT_OK) {
-                Bitmap bmp = (Bitmap) intent.getExtras().get("data");
+                Bitmap bmp = (Bitmap) data.getExtras().get("data");
                 //TODO Call API to get the data here & pass the same to the speech recognition
-                App.getInstance().speak("I have found the following ingredients: Egg, Broccoli, Chicken, Tomato, Onion. Searching for recipes");
+                showProgressDialog("Loading Recipes...");
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        App.getInstance().speak("I have found the following ingredients: Egg, Broccoli, Chicken, Tomato, Onion. Searching for recipes");
+                    }
+                }, 2000);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        dismissProgressDialog();
+                        Intent intent = new Intent(mActivity, ReceipeResultActivity.class);
+                        mActivity.startActivity(intent);
+                    }
+                }, 11000);
             }
         }
     }

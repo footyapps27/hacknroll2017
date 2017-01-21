@@ -21,6 +21,9 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import roll.hack.iss.hackroll2017.App;
 import roll.hack.iss.hackroll2017.R;
+import roll.hack.iss.hackroll2017.ui.activity.DashboardActivity;
+import roll.hack.iss.hackroll2017.ui.activity.ReceipeResultActivity;
+import roll.hack.iss.hackroll2017.ui.base.BaseActivity;
 import roll.hack.iss.hackroll2017.ui.base.BaseFragment;
 import roll.hack.iss.hackroll2017.util.PermissionUtil;
 import roll.hack.iss.hackroll2017.utility.TextToSpeechUtility;
@@ -92,7 +95,21 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
             if (resultCode == Activity.RESULT_OK) {
                 Bitmap bmp = (Bitmap) data.getExtras().get("data");
                 //TODO Call API to get the data here & pass the same to the speech recognition
-                App.getInstance().speak("I have found the following ingredients: Egg, Broccoli, Chicken, Tomato, Onion. Searching for recipes");
+                ((DashboardActivity) getActivity()).showProgressDialog("Loading Recipes...");
+                img_camera.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        App.getInstance().speak("I have found the following ingredients: Egg, Broccoli, Chicken, Tomato, Onion. Searching for recipes");
+                    }
+                }, 2000);
+                img_camera.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        ((DashboardActivity) getActivity()).dismissProgressDialog();
+                        Intent intent = new Intent(getActivity(), ReceipeResultActivity.class);
+                        getActivity().startActivity(intent);
+                    }
+                }, 11000);
             }
         } else {
             mTextToSpeechUtility.receivedOnActivityResult(this, requestCode, resultCode);
