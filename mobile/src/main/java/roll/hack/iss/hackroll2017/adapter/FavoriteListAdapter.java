@@ -69,9 +69,9 @@ public class FavoriteListAdapter extends BaseAdapter {
             holder.receipe_image = (ImageView) convertView.findViewById(R.id.receipe_image);
             //setting view here
             holder.name.setText(list.get(position).getName());
-            holder.duration.setText(list.get(position).getCookingTime()+"");
+            holder.duration.setText(list.get(position).getTimeToCook()+" mins");
             holder.complexity.setText(list.get(position).getComplexity());
-            holder.kcal.setText(list.get(position).getCalorieCount()+"Kcal");
+            holder.kcal.setText(list.get(position).getCalorieCount()+" cal");
             final ImageView imageView = holder.receipe_image;
             ImageRequest imageRequest = new ImageRequest(
                     list.get(position).getImgPath(),

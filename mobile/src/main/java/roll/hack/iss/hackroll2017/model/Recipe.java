@@ -82,14 +82,6 @@ public class Recipe implements Serializable{
         mRating = rating;
     }
 
-    public int getCookingTime() {
-        return mCookingTime;
-    }
-
-    public void setCookingTime(int cookingTime) {
-        mCookingTime = cookingTime;
-    }
-
     public int getServes() {
         return mServes;
     }
