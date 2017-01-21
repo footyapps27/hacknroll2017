@@ -26,8 +26,8 @@ public class DashboardFragment extends BaseFragment {
 
     @Override
     protected void initComponent() {
-        mTextToSpeechUtility = new TextToSpeechUtility();
-        mTextToSpeechUtility.initializeTextToSpeech(this);
+       /* mTextToSpeechUtility = new TextToSpeechUtility();
+        mTextToSpeechUtility.initializeTextToSpeech(this);*/
     }
 
     @Override
