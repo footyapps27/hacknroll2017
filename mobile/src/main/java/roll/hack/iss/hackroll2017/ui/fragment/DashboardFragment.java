@@ -2,6 +2,7 @@ package roll.hack.iss.hackroll2017.ui.fragment;
 
 import android.content.Intent;
 
+import roll.hack.iss.hackroll2017.App;
 import roll.hack.iss.hackroll2017.R;
 import roll.hack.iss.hackroll2017.ui.base.BaseFragment;
 import roll.hack.iss.hackroll2017.utility.TextToSpeechUtility;
@@ -17,6 +18,7 @@ public class DashBoardFragment extends BaseFragment {
     @Override
     public void onStart() {
         super.onStart();
+        App.getInstance().speak("Hello John, what do you want to cook today?");
     }
 
     @Override
@@ -26,8 +28,9 @@ public class DashBoardFragment extends BaseFragment {
 
     @Override
     protected void initComponent() {
-        mTextToSpeechUtility = new TextToSpeechUtility();
-        mTextToSpeechUtility.initializeTextToSpeech(this);
+//        mTextToSpeechUtility = new TextToSpeechUtility();
+//        mTextToSpeechUtility.initializeTextToSpeech(this);
+//        mTextToSpeechUtility.listener = this;
     }
 
     @Override
@@ -35,11 +38,13 @@ public class DashBoardFragment extends BaseFragment {
 
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        mTextToSpeechUtility.receivedOnActivityResult(this, requestCode, resultCode);
-        if(mTextToSpeechUtility != null) {
-            mTextToSpeechUtility.speak("Hello John, what do you want to cook today?");
-        }
-    }
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        mTextToSpeechUtility.receivedOnActivityResult(this, requestCode, resultCode);
+//    }
+//
+//    @Override
+//    public void textToSpeechUtilityReady() {
+//        mTextToSpeechUtility.speak("Hello John, what do you want to cook today?");
+//    }
 }

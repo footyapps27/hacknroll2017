@@ -25,6 +25,16 @@ public class TextToSpeechUtility implements TextToSpeech.OnInitListener {
     /****************************/
     private TextToSpeech mTextToSpeech;
 
+    public TextToSpeechInterface listener;
+
+    /****************************/
+    // Public Interface
+    /****************************/
+    public interface TextToSpeechInterface {
+
+        public void textToSpeechUtilityReady();
+    }
+
     /****************************/
     // Interface Implementation
     /****************************/
@@ -32,6 +42,7 @@ public class TextToSpeechUtility implements TextToSpeech.OnInitListener {
         if (initStatus == TextToSpeech.SUCCESS) {
             mTextToSpeech.setLanguage(Locale.US);
             mTextToSpeech.setSpeechRate(0.8f);
+            listener.textToSpeechUtilityReady();
         }
     }
 
@@ -44,9 +55,12 @@ public class TextToSpeechUtility implements TextToSpeech.OnInitListener {
      * @param fragment
      */
     public void initializeTextToSpeech(Fragment fragment) {
-        Intent textToSpeechIntent = new Intent();
-        textToSpeechIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-        fragment.startActivityForResult(textToSpeechIntent, MY_DATA_CHECK_CODE);
+
+        mTextToSpeech = new TextToSpeech(fragment.getActivity(), this);
+
+//        Intent textToSpeechIntent = new Intent();
+//        textToSpeechIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+//        fragment.startActivityForResult(textToSpeechIntent, MY_DATA_CHECK_CODE);
     }
 
     /**
@@ -70,10 +84,10 @@ public class TextToSpeechUtility implements TextToSpeech.OnInitListener {
 
     public void speak(String textToSpeak) {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            mTextToSpeech.speak(textToSpeak, TextToSpeech.QUEUE_FLUSH, null, null);
+            mTextToSpeech.speak(textToSpeak, TextToSpeech.QUEUE_ADD, null, null);
         }
         else {
-            mTextToSpeech.speak(textToSpeak, TextToSpeech.QUEUE_FLUSH, null);
+            mTextToSpeech.speak(textToSpeak, TextToSpeech.QUEUE_ADD, null);
         }
     }
 }
