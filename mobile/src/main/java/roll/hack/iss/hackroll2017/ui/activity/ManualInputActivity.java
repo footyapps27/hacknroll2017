@@ -27,26 +27,30 @@ import roll.hack.iss.hackroll2017.ui.base.BaseActivity;
 public class ManualInputActivity extends BaseActivity {
     @Bind(R.id.fab_add_ingredient)
     protected FloatingActionButton fabAdd;
-    private ListView InputFoodList;
+    @Bind(R.id.input_listview)
+    protected ListView InputFoodList;
+
     private List<FoodItem> foodList = new ArrayList<>();
     private FoodListAdapter adapter;
 
     @Override
     protected void initComponent() {
         adapter = new FoodListAdapter(mActivity);
+        adapter.setDataList(foodList);
+        InputFoodList.setAdapter(adapter);
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final Dialog dialog = new Dialog(new ContextThemeWrapper(mActivity, R.style.DialogSlideAnim));
-                dialog.getWindow().setGravity(Gravity.BOTTOM);
-                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                dialog.getWindow().setGravity(Gravity.CENTER);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.white);
                 dialog.setTitle(R.string.dlg_input_title);
                 dialog.setContentView(R.layout.dlg_manually_input);
                 final EditText foodName = (EditText) dialog.findViewById(R.id.edittext_foodname);
                 final EditText foodQuantity = (EditText) dialog.findViewById(R.id.edittext_quantity);
 
-                Button btn_confirm = (Button) findViewById(R.id.btn_confirm);
-                Button btn_cancel = (Button) findViewById(R.id.btn_cancel);
+                Button btn_confirm = (Button) dialog.findViewById(R.id.btn_confirm);
+                Button btn_cancel = (Button) dialog.findViewById(R.id.btn_cancel);
 
                 btn_confirm.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -56,6 +60,7 @@ public class ManualInputActivity extends BaseActivity {
                         foodItem.setQuantity(foodQuantity.getText().toString());
                         foodList.add(foodItem);
                         adapter.notifyDataSetChanged();
+                        dialog.dismiss();
                     }
                 });
                 btn_cancel.setOnClickListener(new View.OnClickListener() {
