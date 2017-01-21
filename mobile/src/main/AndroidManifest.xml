@@ -3,6 +3,7 @@
     package="roll.hack.iss.hackroll2017">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".App"
