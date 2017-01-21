@@ -111,6 +111,5 @@ public abstract class BaseSingleFragmentActivity extends AppCompatActivity {
             pDlg.dismiss();
         }
     }
-
-
 }
+
