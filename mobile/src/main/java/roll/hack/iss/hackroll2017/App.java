@@ -1,14 +1,12 @@
 package roll.hack.iss.hackroll2017;
 
 import android.app.Application;
-import android.os.Build;
 import android.speech.tts.TextToSpeech;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 import roll.hack.iss.hackroll2017.model.Recipe;
 
@@ -96,10 +94,10 @@ public class App extends Application implements TextToSpeech.OnInitListener {
         recipe1.setTimeToCook(10);
         recipe1.setCalorieCount(250);
         recipe1.setComplexity("Easy");
-        recipe1.setDetailedSteps("Step 1: In a medium non-stick skillet heat the oil over medium heat. " +
-                "Step 2: Add the tomatoes and scallions and cook about 5 minutes, stirring occasionally.Meanwhile, in a small bowl beat the eggs and salt." +
-                "Step 3: Pour the eggs in the skillet with the tomato mixture and cook over medium heat, without stirring, until mixture begins to set.Stir twice or until the eggs mix with the tomato and scallions and cook about 2 minutes or until the eggs are the consistency you like." +
-                "Step 4: Transfer to a serving plate and serve with arepa or toast."
+        recipe1.setDetailedSteps("Step 1: In a medium non-stick skillet heat the oil over medium heat.\n " +
+                "Step 2: Add the tomatoes and scallions and cook about 5 minutes, stirring occasionally.Meanwhile, in a small bowl beat the eggs and salt.\n" +
+                "Step 3: Pour the eggs in the skillet with the tomato mixture and cook over medium heat, without stirring, until mixture begins to set.Stir twice or until the eggs mix with the tomato and scallions and cook about 2 minutes or until the eggs are the consistency you like.\n" +
+                "Step 4: Transfer to a serving plate and serve with arepa or toast.\n"
         );
 
 
