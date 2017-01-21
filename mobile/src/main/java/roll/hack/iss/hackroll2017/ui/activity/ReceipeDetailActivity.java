@@ -1,12 +1,18 @@
 package roll.hack.iss.hackroll2017.ui.activity;
 
+import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
+
 import butterknife.Bind;
+import roll.hack.iss.hackroll2017.App;
 import roll.hack.iss.hackroll2017.R;
-import roll.hack.iss.hackroll2017.adapter.ResultListAdapter;
+import roll.hack.iss.hackroll2017.model.Recipe;
 import roll.hack.iss.hackroll2017.ui.base.BaseActivity;
 
 /**
@@ -20,19 +26,48 @@ public class ReceipeDetailActivity extends BaseActivity {
     @Bind(R.id.reciepe_instruction)
     TextView reciepe_instruction;
 
-
+    private Recipe mRecipe;
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        App.getInstance().speak(mRecipe.getDetailedSteps());
+    }
+    
+    @Override
     protected void initComponent() {
-        
+
 
 
     }
 
     @Override
     protected void initData() {
+        /*Recipe recipe1;
+        recipe1 =  App.getInstance().getMockData().get(0);
+        reciepe_instruction.setText(recipe1.getDetailedSteps());
+*/      Bundle args = this.getIntent().getExtras();
+        // getting attached intent data
+        mRecipe = (Recipe) args.get("recipe");
+        // displaying selected product name
+        reciepe_instruction.setText(mRecipe.getDetailedSteps());
+        final ImageView imageView = receipeImage;
+        ImageRequest imageRequest = new ImageRequest(
+                mRecipe.getImgPath(),
 
-    }
+                new Response.Listener<Bitmap>() {
+                    @Override
+                    public void onResponse(Bitmap response) {
+                        imageView.setImageBitmap(response);
+                    }
+                }, 0, 0, Bitmap.Config.RGB_565, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                imageView.setImageResource(R.mipmap.ic_launcher);
+            }
+        });
+        App.getInstance().queue.add(imageRequest);
+         }
 
     @Override
     protected int getLayoutId() {

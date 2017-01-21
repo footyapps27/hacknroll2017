@@ -6,4 +6,8 @@
     <string name="edittext_quantity">please enter the amount of food</string>
     <string name="dlg_input_title">Add Available Food</string>
     <string name="image_setting">Image Settings</string>
+
+    <!--permission rationale -->
+    <string name="permission_camera_rationale">Camera permission is needed to show the camera preview.</string>
+    <string name="permission_read_external_rationale">ReadExternal permission is needed to read the SD Card and Memory storage.</string>
 </resources>

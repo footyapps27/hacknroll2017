@@ -1,6 +1,10 @@
 package roll.hack.iss.hackroll2017.ui.activity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -8,11 +12,13 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import butterknife.Bind;
+import roll.hack.iss.hackroll2017.App;
 import roll.hack.iss.hackroll2017.R;
 import roll.hack.iss.hackroll2017.ui.base.BaseSingleFragmentActivity;
 import roll.hack.iss.hackroll2017.ui.fragment.DashboardFragment;
 import roll.hack.iss.hackroll2017.ui.fragment.FavoriteFragment;
 import roll.hack.iss.hackroll2017.ui.fragment.profileFragment;
+import roll.hack.iss.hackroll2017.util.PermissionUtil;
 
 /**
  * Created by Suba Raj on 1/21/2017.
@@ -90,6 +96,33 @@ public class DashboardActivity extends BaseSingleFragmentActivity implements Vie
             case R.id.linearLayout_favorite:
                 ChangeFragment(FRAG_FAVORITE);
                 break;
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case PermissionUtil.REQUEST_CAMERA: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(takePicture, DashboardFragment.REQUEST_CAMERA);
+                }
+                break;
+            }
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+        if (requestCode == DashboardFragment.REQUEST_CAMERA) {
+            if (resultCode == Activity.RESULT_OK) {
+                Bitmap bmp = (Bitmap) intent.getExtras().get("data");
+                //TODO Call API to get the data here & pass the same to the speech recognition
+                App.getInstance().speak("I have found the following ingredients: Egg, Broccoli, Chicken, Tomato, Onion. Searching for recipes");
+            }
         }
     }
 }
