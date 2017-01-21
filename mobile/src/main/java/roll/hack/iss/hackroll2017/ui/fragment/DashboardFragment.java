@@ -96,35 +96,36 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
 //            mTextToSpeechUtility.speak("Hello John, what do you want to cook today?");
 //        } else
         if (requestCode == 1010 && resultCode == Activity.RESULT_OK) {
-        if (requestCode == REQUEST_CAMERA) {
-            if (resultCode == Activity.RESULT_OK) {
-                Bitmap bmp = (Bitmap) data.getExtras().get("data");
-                //TODO Call API to get the data here & pass the same to the speech recognition
-                ((DashboardActivity) getActivity()).showProgressDialog("Loading Recipes...");
-                img_camera.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        App.getInstance().speak("I have found the following ingredients: Egg, Broccoli, Chicken, Tomato, Onion. Searching for recipes");
-                    }
-                }, 2000);
-                img_camera.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        ((DashboardActivity) getActivity()).dismissProgressDialog();
-                        Intent intent = new Intent(getActivity(), ReceipeResultActivity.class);
-                        getActivity().startActivity(intent);
-                    }
-                }, 11000);
-            }
-        } else {
-            mTextToSpeechUtility.receivedOnActivityResult(this, requestCode, resultCode);
+            if (requestCode == REQUEST_CAMERA) {
+                if (resultCode == Activity.RESULT_OK) {
+                    Bitmap bmp = (Bitmap) data.getExtras().get("data");
+                    //TODO Call API to get the data here & pass the same to the speech recognition
+                    ((DashboardActivity) getActivity()).showProgressDialog("Loading Recipes...");
+                    img_camera.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            App.getInstance().speak("I have found the following ingredients: Egg, Broccoli, Chicken, Tomato, Onion. Searching for recipes");
+                        }
+                    }, 2000);
+                    img_camera.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            ((DashboardActivity) getActivity()).dismissProgressDialog();
+                            Intent intent = new Intent(getActivity(), ReceipeResultActivity.class);
+                            getActivity().startActivity(intent);
+                        }
+                    }, 11000);
+                }
+            } else {
+                mTextToSpeechUtility.receivedOnActivityResult(this, requestCode, resultCode);
 
-           if (requestCode == 1010 && resultCode == Activity.RESULT_OK) {
+                if (requestCode == 1010 && resultCode == Activity.RESULT_OK) {
 //            this.mVisionOutputLayout.setVisibility(View.VISIBLE);
-                voiceOutput = data
-                        .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                resultAlertDialog();
-                resultSuccess();//            this.setFields(this.mVisionOutputList);
+                    voiceOutput = data
+                            .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    resultAlertDialog();
+                    resultSuccess();//            this.setFields(this.mVisionOutputList);
+                }
             }
         }
     }
