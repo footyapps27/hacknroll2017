@@ -1,6 +1,8 @@
 package roll.hack.iss.hackroll2017.ui.activity;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -13,6 +15,7 @@ import roll.hack.iss.hackroll2017.ui.base.BaseSingleFragmentActivity;
 import roll.hack.iss.hackroll2017.ui.fragment.DashboardFragment;
 import roll.hack.iss.hackroll2017.ui.fragment.FavoriteFragment;
 import roll.hack.iss.hackroll2017.ui.fragment.profileFragment;
+import roll.hack.iss.hackroll2017.util.PermissionUtil;
 
 /**
  * Created by Suba Raj on 1/21/2017.
@@ -90,6 +93,21 @@ public class DashboardActivity extends BaseSingleFragmentActivity implements Vie
             case R.id.linearLayout_favorite:
                 ChangeFragment(FRAG_FAVORITE);
                 break;
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case PermissionUtil.REQUEST_CAMERA: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(takePicture, DashboardFragment.REQUEST_CAMERA);
+                }
+                break;
+            }
         }
     }
 }
