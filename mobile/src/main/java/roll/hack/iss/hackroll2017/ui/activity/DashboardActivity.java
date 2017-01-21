@@ -1,7 +1,10 @@
 package roll.hack.iss.hackroll2017.ui.activity;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import butterknife.Bind;
@@ -19,6 +22,9 @@ public class DashboardActivity extends BaseSingleFragmentActivity implements Vie
     public static final String FRAG_MAIN = "FRAG_MAIN";
     public static final String FRAG_PROFILE = "FRAG_PROFILE";
     public static final String FRAG_FAVORITE = "FRAG_FAVORITE";
+    @Bind(R.id.toolbar)
+    protected
+    Toolbar toolbar;
     @Bind(R.id.linearLayout_home)
     protected View homeView;
     @Bind(R.id.linearLayout_favorite)
@@ -45,6 +51,17 @@ public class DashboardActivity extends BaseSingleFragmentActivity implements Vie
      */
     @Override
     protected void addActions() {
+        toolbar.setTitle(getResources().getString(R.string.app_name));
+        ImageButton btn_notification = (ImageButton) toolbar.findViewById(R.id.right_button);
+        btn_notification.setVisibility(View.VISIBLE);
+        btn_notification.setImageResource(R.drawable.voice);
+        btn_notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mActivity, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
         homeView.setOnClickListener(this);
         favoriteView.setOnClickListener(this);
         profileView.setOnClickListener(this);
