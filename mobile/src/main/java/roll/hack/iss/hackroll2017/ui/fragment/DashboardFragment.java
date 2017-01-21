@@ -76,10 +76,11 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        mTextToSpeechUtility.receivedOnActivityResult(this, requestCode, resultCode);
-        if (mTextToSpeechUtility != null) {
-            mTextToSpeechUtility.speak("Hello John, what do you want to cook today?");
-        } else if (requestCode == 1010 && resultCode == Activity.RESULT_OK) {
+//        mTextToSpeechUtility.receivedOnActivityResult(this, requestCode, resultCode);
+//        if (mTextToSpeechUtility != null) {
+//            mTextToSpeechUtility.speak("Hello John, what do you want to cook today?");
+//        } else
+        if (requestCode == 1010 && resultCode == Activity.RESULT_OK) {
 //            this.mVisionOutputLayout.setVisibility(View.VISIBLE);
             voiceOutput = data
                     .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
