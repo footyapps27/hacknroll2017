@@ -1,6 +1,14 @@
 package roll.hack.iss.hackroll2017.ui.activity;
 
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.Bind;
 import roll.hack.iss.hackroll2017.R;
+import roll.hack.iss.hackroll2017.adapter.FavoriteListAdapter;
+import roll.hack.iss.hackroll2017.model.Recipe;
 import roll.hack.iss.hackroll2017.ui.base.BaseActivity;
 
 /**

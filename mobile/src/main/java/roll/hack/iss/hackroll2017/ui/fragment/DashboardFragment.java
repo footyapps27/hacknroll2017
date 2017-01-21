@@ -15,6 +15,10 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import butterknife.Bind;
+import android.media.MediaPlayer;
+import android.net.Uri;
+
+import roll.hack.iss.hackroll2017.App;
 import roll.hack.iss.hackroll2017.R;
 import roll.hack.iss.hackroll2017.ui.activity.VoiceInputActivity;
 import roll.hack.iss.hackroll2017.ui.base.BaseFragment;
@@ -40,6 +44,17 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
     @Override
     public void onStart() {
         super.onStart();
+
+        try {
+            if(!App.getInstance().blAlreadyExecuted) {
+                int resID = getResources().getIdentifier("launch_audio", "raw", getActivity().getPackageName());
+                MediaPlayer mediaPlayer = MediaPlayer.create(getActivity(),resID);
+                mediaPlayer.start();
+                App.getInstance().blAlreadyExecuted = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

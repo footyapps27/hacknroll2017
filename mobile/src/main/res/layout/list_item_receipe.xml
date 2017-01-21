@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/receipe_image"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_centerVertical="true"
         android:src="@mipmap/ic_launcher" />
 
@@ -23,12 +23,13 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
+        <LinearLayout
             android:id="@+id/rating"
-            style="@style/ReceiptListTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3 Stars" />
+            android:orientation="horizontal">
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/kcal"

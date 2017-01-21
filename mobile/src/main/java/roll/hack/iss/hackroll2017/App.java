@@ -31,6 +31,8 @@ public class App extends Application{
 
     public ArrayList<Recipe> mMockRecipes;
 
+    public boolean blAlreadyExecuted;
+
     /****************************/
     // App Lifecycle
     /****************************/
@@ -155,6 +157,114 @@ public class App extends Application{
                 "Step 5: Place 1 green onion brush in top center of each tomato for stem."
         );
 
+
+        Recipe recipe5 = new Recipe();
+        recipe5.setId(577610);
+        recipe5.setName("Brussels Sprouts and Egg Skillet");
+        recipe5.setImgPath("https://spoonacular.com/recipeImages/Brussels-Sprouts-and-Egg-Skillet-577610.jpg");
+        recipe5.setRating(4);
+        recipe5.setTimeToCook(25);
+        recipe5.setCalorieCount(296);
+        recipe5.setComplexity("Easy");
+        recipe5.setDetailedSteps("Step 1: In an 8 inch cast iron skillet, heat olive oil over medium heat." +
+                "Step 2: Add in onions and saute for 3-4 minutes. Stir in shredded Brussels Sprouts, salt, and pepper." +
+                "Step 3: Let cook for two minutes, add in tablespoons of water, cover, and cook until Brussels Sprouts are tender." +
+                "Step 4: Remove lid, make well in center, and crack eggs. Cover and let cook until egg whites have set and egg yolk is desired consistency." +
+                "Step 5: Place 1 green onion brush in top center of each tomato for stem."
+        );
+
+
+        Recipe recipe6 = new Recipe();
+        recipe6.setId(584018);
+        recipe6.setName("Baked Tomato & Egg Breakfast");
+        recipe6.setImgPath("https://spoonacular.com/recipeImages/Baked-Tomato---Egg-Breakfast-584018.jpg");
+        recipe6.setRating(5);
+        recipe6.setTimeToCook(35);
+        recipe6.setCalorieCount(340);
+        recipe6.setComplexity("Easy");
+        recipe6.setDetailedSteps("Step 1: Preheat oven to 350 F.Line a baking sheet with aluminum foil." +
+                "Step 2: Cut the tops of the tomatoes off.With a spoon (I like to use a serrated grapefruit spoon), spoon out all the tomato innards.Crack an egg in each hallowed-out tomato." +
+                "Step 3: Bake at 350 F for 30 minutes." +
+                "Step 4: Let cool for a few minutes.Dust with minced parsley, salt & pepper then enjoy!"
+        );
+
+
+        Recipe recipe7 = new Recipe();
+        recipe7.setId(600265);
+            recipe7.setName("Chinese Imperial Palace Egg Drop Soup");
+        recipe7.setImgPath("https://spoonacular.com/recipeImages/Chinese-Imperial-Palace-Egg-Drop-Soup-600265.jpg");
+        recipe7.setRating(4);
+        recipe7.setTimeToCook(15);
+        recipe7.setCalorieCount(61);
+        recipe7.setComplexity("Easy");
+        recipe7.setDetailedSteps("Step 1: Bring the broth to a simmer over low medium heat. Very slowly stream in the egg, use a fork to pull strands of the egg gently. Do not stir vigorously; you will have a mess if you do." +
+                "Step 2: Add white pepper and salt. Continue to cook until egg is done." +
+                "Step 3: Serve promptly."
+        );
+
+
+        Recipe recipe8 = new Recipe();
+        recipe8.setId(589973);
+        recipe8.setName("Pizza alla Bismark- with eggs");
+        recipe8.setImgPath("https://spoonacular.com/recipeImages/Pizza-alla-Bismark--with-eggs-589973.jpg");
+        recipe8.setRating(4);
+        recipe8.setTimeToCook(20);
+        recipe8.setCalorieCount(885);
+        recipe8.setComplexity("Medium");
+        recipe8.setDetailedSteps("Step 1: Preheat oven to 450º." +
+                "Step 2: Heat saute pan on cooktop over medium-high heat." +
+                "Step 3: Add olive oil and onions, then saute until onions start to soften & color on edges." +
+                "Step 4: Place pizza crust on a sheet of heavy aluminum foil." +
+                "Step 5: Spread sauteed onions and oil over crust, making sure to spread the oil to coat all of the top side of the pizza crust. Crack eggs directly over crust." +
+                "Step 6: Place in pizza, foil & all into preheated oven." +
+                "Step 7: Bake for approximately 10 minutes, or until crust turns golden and eggs start to set." +
+                "Step 8: Remove from oven, season with a touch of sea salt & fresh cracked pepper. Slice & enjoy."
+        );
+
+
+        Recipe recipe9 = new Recipe();
+        recipe9.setId(630080);
+        recipe9.setName("Tortilla de Patatas");
+        recipe9.setImgPath("https://spoonacular.com/recipeImages/Tortilla-de-Patatas-630080.jpg");
+        recipe9.setRating(5);
+        recipe9.setTimeToCook(45);
+        recipe9.setCalorieCount(570);
+        recipe9.setComplexity("Difficult");
+        recipe9.setDetailedSteps("Step 1: Place potatoes in a large colander, sprinkle with 2 tsp. salt, and toss to coat." +
+                "Step 2: Let stand for 30 minutes. Pat dry with paper towels." +
+                "Step 3: Heat oil in a large nonstick skillet over medium-high heat." +
+                "Step 4: Add potatoes and cook, turning occasionally, until crisp-tender, 1015 minutes." +
+                "Step 5: Add onion to potatoes in skillet; cook until onion and potatoes are soft, 58 minutes. Using a slotted spoon, transfer mixture to a large bowl; let cool slightly. Strain oil into a heatproof bowl; set aside." +
+                "Step 6: Add eggs to potato mixture; season with salt. Wipe out skillet." +
+                "Step 7: Heat  cup reserved oil over medium-high heat (chill remaining oil for another use)." +
+                "Step 8: Add egg mixture, arranging potatoes to submerge.Reduce heat to medium; cook tortilla until almost set (it will be slightly runny on top), 2530 minutes. Invert onto a large plate. Slide into skillet browned side up. Cook until golden on bottom and cooked through, about 4 minutes more." +
+                "Step 9: Serve warm or at room temperature."
+        );
+
+        Recipe recipe10 = new Recipe();
+        recipe10.setId(490800);
+        recipe10.setName("Broccoli and Cheese Egg Casserole");
+        recipe10.setImgPath("https://spoonacular.com/recipeImages/Broccoli-and-Cheese-Egg-Casserole-490800.jpg");
+        recipe10.setRating(5);
+        recipe10.setTimeToCook(50);
+        recipe10.setCalorieCount(138);
+        recipe10.setComplexity("Medium");
+        recipe10.setDetailedSteps("Step 1: Crack the eggs into a large bowl." +
+                "Step 2: Whisk. Stir in all the chopped vegetables, tomatoes, salt, pepper, and cheese." +
+                "Step 3: Pour into a greased 9 across 13 dish." +
+                "Step 4: Bake at 350* for 45 minutes.Cool on a wire rack. Refrigerate."
+        );
+
+        mMockRecipes.add(recipe1);
+        mMockRecipes.add(recipe2);
+        mMockRecipes.add(recipe3);
+        mMockRecipes.add(recipe4);
+        mMockRecipes.add(recipe5);
+        mMockRecipes.add(recipe6);
+        mMockRecipes.add(recipe7);
+        mMockRecipes.add(recipe8);
+        mMockRecipes.add(recipe9);
+        mMockRecipes.add(recipe10);
     }
 }
 

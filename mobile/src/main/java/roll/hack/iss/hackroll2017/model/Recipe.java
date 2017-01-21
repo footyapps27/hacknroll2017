@@ -1,10 +1,12 @@
 package roll.hack.iss.hackroll2017.model;
 
+import java.io.Serializable;
+
 /**
  * Created by linby on 21/01/2017.
  */
 
-public class Recipe {
+public class Recipe implements Serializable{
 
     private int mId;
 
@@ -78,14 +80,6 @@ public class Recipe {
 
     public void setRating(int rating) {
         mRating = rating;
-    }
-
-    public int getCookingTime() {
-        return mCookingTime;
-    }
-
-    public void setCookingTime(int cookingTime) {
-        mCookingTime = cookingTime;
     }
 
     public int getServes() {
