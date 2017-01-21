@@ -1,7 +1,9 @@
 package roll.hack.iss.hackroll2017.ui.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
@@ -10,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import butterknife.Bind;
+import roll.hack.iss.hackroll2017.App;
 import roll.hack.iss.hackroll2017.R;
 import roll.hack.iss.hackroll2017.ui.base.BaseSingleFragmentActivity;
 import roll.hack.iss.hackroll2017.ui.fragment.DashboardFragment;
@@ -114,5 +117,12 @@ public class DashboardActivity extends BaseSingleFragmentActivity implements Vie
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
+        if (requestCode == DashboardFragment.REQUEST_CAMERA) {
+            if (resultCode == Activity.RESULT_OK) {
+                Bitmap bmp = (Bitmap) intent.getExtras().get("data");
+                //TODO Call API to get the data here & pass the same to the speech recognition
+                App.getInstance().speak("I have found the following ingredients: Egg, Broccoli, Chicken, Tomato, Onion. Searching for recipes");
+            }
+        }
     }
 }
