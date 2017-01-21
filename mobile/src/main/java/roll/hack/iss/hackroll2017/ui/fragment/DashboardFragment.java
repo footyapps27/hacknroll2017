@@ -7,7 +7,7 @@ import roll.hack.iss.hackroll2017.ui.base.BaseFragment;
  * Created by linby on 21/01/2017.
  */
 
-public class DashboardFragment extends BaseFragment{
+public class DashBoardFragment extends BaseFragment{
     @Override
     protected int getLayoutId() {
         return R.layout.main_layout;
