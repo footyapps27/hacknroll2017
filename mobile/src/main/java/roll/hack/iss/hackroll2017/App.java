@@ -105,8 +105,8 @@ public class App extends Application implements TextToSpeech.OnInitListener {
 
         Recipe recipe2 = new Recipe();
         recipe2.setId(245354);
-        recipe2.setName("recipe_2");
-        recipe2.setImgPath("https://spoonacular.com/recipeImages/Tuscan-Scrambled-Eggs-245354.jpg");
+        recipe2.setName("Tuscan-Scrambled-Eggs");
+        recipe2.setImgPath("recipe_2");
         recipe2.setRating(4);
         recipe2.setTimeToCook(60);
         recipe2.setCalorieCount(244);
