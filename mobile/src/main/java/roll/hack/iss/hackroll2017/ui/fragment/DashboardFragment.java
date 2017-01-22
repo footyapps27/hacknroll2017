@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.provider.MediaStore;
 import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
@@ -24,7 +23,6 @@ import roll.hack.iss.hackroll2017.R;
 import roll.hack.iss.hackroll2017.ui.activity.DashboardActivity;
 import roll.hack.iss.hackroll2017.ui.activity.ManualInputActivity;
 import roll.hack.iss.hackroll2017.ui.activity.ReceipeResultActivity;
-import roll.hack.iss.hackroll2017.ui.base.BaseActivity;
 import roll.hack.iss.hackroll2017.ui.base.BaseFragment;
 import roll.hack.iss.hackroll2017.util.PermissionUtil;
 import roll.hack.iss.hackroll2017.utility.TextToSpeechUtility;
@@ -105,7 +103,7 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
 //        if (mTextToSpeechUtility != null) {
 //            mTextToSpeechUtility.speak("Hello John, what do you want to cook today?");
 //        } else
-        if (requestCode == 1010 && resultCode == Activity.RESULT_OK) {
+        if (requestCode == 1001 && resultCode == Activity.RESULT_OK) {
             if (requestCode == REQUEST_CAMERA) {
                 if (resultCode == Activity.RESULT_OK) {
                     Bitmap bmp = (Bitmap) data.getExtras().get("data");
