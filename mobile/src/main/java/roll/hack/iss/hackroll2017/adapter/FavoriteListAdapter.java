@@ -28,11 +28,13 @@ import roll.hack.iss.hackroll2017.model.Recipe;
 public class FavoriteListAdapter extends BaseAdapter {
     List<Recipe> list = new ArrayList<>();
     LayoutInflater mInflater;
+    Activity mActivity;
 
     /**
      * constructor requrire list
      */
     public FavoriteListAdapter(Activity mActivity) {
+        this.mActivity = mActivity;
         mInflater = (LayoutInflater) mActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -73,20 +75,21 @@ public class FavoriteListAdapter extends BaseAdapter {
             holder.complexity.setText(list.get(position).getComplexity());
             holder.kcal.setText(list.get(position).getCalorieCount()+" cal");
             final ImageView imageView = holder.receipe_image;
-            ImageRequest imageRequest = new ImageRequest(
-                    list.get(position).getImgPath(),
-                    new Response.Listener<Bitmap>() {
-                        @Override
-                        public void onResponse(Bitmap response) {
-                            imageView.setImageBitmap(response);
-                        }
-                    }, 0, 0, Bitmap.Config.RGB_565, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    imageView.setImageResource(R.mipmap.ic_launcher);
-                }
-            });
-            App.getInstance().queue.add(imageRequest);
+//            ImageRequest imageRequest = new ImageRequest(
+//                    list.get(position).getImgPath(),
+//                    new Response.Listener<Bitmap>() {
+//                        @Override
+//                        public void onResponse(Bitmap response) {
+//                            imageView.setImageBitmap(response);
+//                        }
+//                    }, 0, 0, Bitmaap.Config.RGB_565, new Response.ErrorListener() {
+//                @Override
+//                public void onErrorResponse(VolleyError error) {
+//                    imageView.setImageResource(R.mipmap.ic_launcher);
+//                }
+//            });
+            holder.receipe_image.setImageResource(mActivity.getResources().getIdentifier(list.get(position).getImgPath(),"drawable", mActivity.getPackageName()));
+//            App.getInstance().queue.add(imageRequest);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
