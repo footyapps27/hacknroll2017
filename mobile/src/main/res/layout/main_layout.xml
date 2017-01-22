@@ -41,7 +41,7 @@
                 />
 
             <ImageView
-                android:id="@+id/imageView_tbd"
+                android:id="@+id/imageView_manualEntry"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_alignParentRight="true"
@@ -51,7 +51,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:gravity="center"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:layout_below="@id/layout_input1"
             android:layout_height="wrap_content">
 
