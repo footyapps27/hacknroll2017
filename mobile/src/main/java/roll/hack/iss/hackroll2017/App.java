@@ -91,7 +91,7 @@ public class App extends Application implements TextToSpeech.OnInitListener {
         Recipe recipe1 = new Recipe();
         recipe1.setId(226705);
         recipe1.setName("Scramble Eggs with Tomato and Scallions");
-        recipe1.setImgPath("https://spoonacular.com/recipeImages/Scramble-Eggs-with-Tomato-and-Scallions-(Huevos-Revueltos-con-Tomate-y-Cebolla)-226705.jpg");
+        recipe1.setImgPath("recipe_1");
         recipe1.setRating(4);
         recipe1.setTimeToCook(10);
         recipe1.setCalorieCount(250);
@@ -105,8 +105,8 @@ public class App extends Application implements TextToSpeech.OnInitListener {
 
         Recipe recipe2 = new Recipe();
         recipe2.setId(245354);
-        recipe2.setName("Tuscan Scrambled Eggs");
-        recipe2.setImgPath("https://spoonacular.com/recipeImages/Tuscan-Scrambled-Eggs-245354.jpg");
+        recipe2.setName("Tuscan-Scrambled-Eggs");
+        recipe2.setImgPath("recipe_2");
         recipe2.setRating(4);
         recipe2.setTimeToCook(60);
         recipe2.setCalorieCount(244);
@@ -124,7 +124,7 @@ public class App extends Application implements TextToSpeech.OnInitListener {
         Recipe recipe3 = new Recipe();
         recipe3.setId(110920);
         recipe3.setName("Spanish Tortilla with Broccoli, Chorizo, and Onion");
-        recipe3.setImgPath("https://spoonacular.com/recipeImages/spanish-tortilla-with-broccoli-chorizo-and-onion-2-110920.png");
+        recipe3.setImgPath("recipe_3");
         recipe3.setRating(2);
         recipe3.setTimeToCook(30);
         recipe3.setCalorieCount(481);
@@ -145,7 +145,7 @@ public class App extends Application implements TextToSpeech.OnInitListener {
         Recipe recipe4 = new Recipe();
         recipe4.setId(172369);
         recipe4.setName("Chicken Salad-Stuffed Tomato Appetizers");
-        recipe4.setImgPath("https://spoonacular.com/recipeImages/chicken-salad-stuffed-tomato-appetizers-172369.jpg");
+        recipe4.setImgPath("recipe_4");
         recipe4.setRating(5);
         recipe4.setTimeToCook(35);
         recipe4.setCalorieCount(60);
@@ -161,7 +161,7 @@ public class App extends Application implements TextToSpeech.OnInitListener {
         Recipe recipe5 = new Recipe();
         recipe5.setId(577610);
         recipe5.setName("Brussels Sprouts and Egg Skillet");
-        recipe5.setImgPath("https://spoonacular.com/recipeImages/Brussels-Sprouts-and-Egg-Skillet-577610.jpg");
+        recipe5.setImgPath("recipe_5");
         recipe5.setRating(4);
         recipe5.setTimeToCook(25);
         recipe5.setCalorieCount(296);
@@ -177,7 +177,7 @@ public class App extends Application implements TextToSpeech.OnInitListener {
         Recipe recipe6 = new Recipe();
         recipe6.setId(584018);
         recipe6.setName("Baked Tomato & Egg Breakfast");
-        recipe6.setImgPath("https://spoonacular.com/recipeImages/Baked-Tomato---Egg-Breakfast-584018.jpg");
+        recipe6.setImgPath("recipe_6");
         recipe6.setRating(5);
         recipe6.setTimeToCook(35);
         recipe6.setCalorieCount(340);
@@ -192,7 +192,7 @@ public class App extends Application implements TextToSpeech.OnInitListener {
         Recipe recipe7 = new Recipe();
         recipe7.setId(600265);
             recipe7.setName("Chinese Imperial Palace Egg Drop Soup");
-        recipe7.setImgPath("https://spoonacular.com/recipeImages/Chinese-Imperial-Palace-Egg-Drop-Soup-600265.jpg");
+        recipe7.setImgPath("recipe_7");
         recipe7.setRating(4);
         recipe7.setTimeToCook(15);
         recipe7.setCalorieCount(61);
@@ -206,7 +206,7 @@ public class App extends Application implements TextToSpeech.OnInitListener {
         Recipe recipe8 = new Recipe();
         recipe8.setId(589973);
         recipe8.setName("Pizza alla Bismark- with eggs");
-        recipe8.setImgPath("https://spoonacular.com/recipeImages/Pizza-alla-Bismark--with-eggs-589973.jpg");
+        recipe8.setImgPath("recipe_8");
         recipe8.setRating(4);
         recipe8.setTimeToCook(20);
         recipe8.setCalorieCount(885);
@@ -225,7 +225,7 @@ public class App extends Application implements TextToSpeech.OnInitListener {
         Recipe recipe9 = new Recipe();
         recipe9.setId(630080);
         recipe9.setName("Tortilla de Patatas");
-        recipe9.setImgPath("https://spoonacular.com/recipeImages/Tortilla-de-Patatas-630080.jpg");
+        recipe9.setImgPath("recipe_9");
         recipe9.setRating(5);
         recipe9.setTimeToCook(45);
         recipe9.setCalorieCount(570);
@@ -244,7 +244,7 @@ public class App extends Application implements TextToSpeech.OnInitListener {
         Recipe recipe10 = new Recipe();
         recipe10.setId(490800);
         recipe10.setName("Broccoli and Cheese Egg Casserole");
-        recipe10.setImgPath("https://spoonacular.com/recipeImages/Broccoli-and-Cheese-Egg-Casserole-490800.jpg");
+        recipe10.setImgPath("recipe_10");
         recipe10.setRating(5);
         recipe10.setTimeToCook(50);
         recipe10.setCalorieCount(138);

@@ -73,24 +73,25 @@ public class FavoriteListAdapter extends BaseAdapter {
             holder.starLayout = (LinearLayout) convertView.findViewById(R.id.rating);
             //setting view here
             holder.name.setText(list.get(position).getName());
-            holder.duration.setText("Time: " + list.get(position).getTimeToCook() + " mins");
-            holder.complexity.setText("Difficulty Level:" + list.get(position).getComplexity());
-            holder.kcal.setText(list.get(position).getCalorieCount() + " cal");
+            holder.duration.setText("Time: "+list.get(position).getTimeToCook()+" mins");
+            holder.complexity.setText("Difficulty Level:"+list.get(position).getComplexity());
+            holder.kcal.setText(list.get(position).getCalorieCount()+" cal");
             final ImageView imageView = holder.receipe_image;
-            ImageRequest imageRequest = new ImageRequest(
-                    list.get(position).getImgPath(),
-                    new Response.Listener<Bitmap>() {
-                        @Override
-                        public void onResponse(Bitmap response) {
-                            imageView.setImageBitmap(response);
-                        }
-                    }, 0, 0, Bitmap.Config.RGB_565, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    imageView.setImageResource(R.mipmap.ic_launcher);
-                }
-            });
-            App.getInstance().queue.add(imageRequest);
+//            ImageRequest imageRequest = new ImageRequest(
+//                    list.get(position).getImgPath(),
+//                    new Response.Listener<Bitmap>() {
+//                        @Override
+//                        public void onResponse(Bitmap response) {
+//                            imageView.setImageBitmap(response);
+//                        }
+//                    }, 0, 0, Bitmaap.Config.RGB_565, new Response.ErrorListener() {
+//                @Override
+//                public void onErrorResponse(VolleyError error) {
+//                    imageView.setImageResource(R.mipmap.ic_launcher);
+//                }
+//            });
+            holder.receipe_image.setImageResource(mActivity.getResources().getIdentifier(list.get(position).getImgPath(),"drawable", mActivity.getPackageName()));
+//
             int count = 0;
             while (count < 5) {
                 if (count < list.get(position).getRating()) {
@@ -103,7 +104,7 @@ public class FavoriteListAdapter extends BaseAdapter {
                     holder.starLayout.addView(starImage);
                 }
                 count++;
-            }
+            }App.getInstance().queue.add(imageRequest);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -111,7 +112,7 @@ public class FavoriteListAdapter extends BaseAdapter {
         return convertView;
     }
 
-    static class ViewHolder {
+   static class ViewHolder {
         public TextView name;
         public TextView duration;
         public TextView complexity;
