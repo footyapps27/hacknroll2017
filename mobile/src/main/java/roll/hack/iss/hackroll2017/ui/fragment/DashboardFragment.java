@@ -116,10 +116,8 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
                         }
                     }, 11000);
                 }
-            } else {
-                mTextToSpeechUtility.receivedOnActivityResult(this, requestCode, resultCode);
+            } else if( (requestCode == 1010 && resultCode == Activity.RESULT_OK)) {
 
-                if (requestCode == 1010 && resultCode == Activity.RESULT_OK) {
 //            this.mVisionOutputLayout.setVisibility(View.VISIBLE);
                     voiceOutput = data
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
@@ -128,7 +126,7 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
                 }
             }
         }
-    }
+
 
     public void resultAlertDialog() {
         LayoutInflater li = LayoutInflater.from(getContext());
@@ -155,7 +153,21 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
 
                             }
                         });
-
+        voiceButton.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                ((DashboardActivity) getActivity()).showProgressDialog("Loading Recipes...");
+                App.getInstance().speak("I have found the following ingredients: Egg, Broccoli, Chicken, Tomato, Onion. Searching for recipes");
+            }
+        }, 2000);
+        voiceButton.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                ((DashboardActivity) getActivity()).dismissProgressDialog();
+                Intent intent = new Intent(getActivity(), ReceipeResultActivity.class);
+                getActivity().startActivity(intent);
+            }
+        }, 11000);
         // create alert dialog
         AlertDialog alertDialog = alertDialogBuilder.create();
         // show it
