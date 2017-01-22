@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hack&amp;Roll2017</string>
+    <string name="app_name">ChefMaker</string>
     <string name="food_name">Food Name</string>
     <string name="edittext_name">Please enter food name</string>
     <string name="food_quantity">Food Quantity</string>
