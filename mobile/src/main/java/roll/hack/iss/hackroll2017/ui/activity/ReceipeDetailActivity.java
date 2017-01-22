@@ -1,13 +1,8 @@
 package roll.hack.iss.hackroll2017.ui.activity;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageRequest;
 
 import butterknife.Bind;
 import roll.hack.iss.hackroll2017.App;
@@ -44,12 +39,15 @@ public class ReceipeDetailActivity extends BaseActivity {
         /*Recipe recipe1;
         recipe1 =  App.getInstance().getMockData().get(0);
         reciepe_instruction.setText(recipe1.getDetailedSteps());
-*/      Bundle args = this.getIntent().getExtras();
+*/
+        Bundle args = this.getIntent().getExtras();
         // getting attached intent data
         mRecipe = (Recipe) args.get("recipe");
         // displaying selected product name
         reciepe_instruction.setText(mRecipe.getDetailedSteps());
-        final ImageView imageView = receipeImage;
+       /// receipeImage.setImageResource(Integer.parseInt(mRecipe.getImgPath()));
+        receipeImage.setImageResource(mActivity.getResources().getIdentifier(mRecipe.getImgPath(),"drawable", mActivity.getPackageName()));
+        /*final ImageView imageView = receipeImage;
         ImageRequest imageRequest = new ImageRequest(
                 mRecipe.getImgPath(),
 
@@ -65,7 +63,8 @@ public class ReceipeDetailActivity extends BaseActivity {
             }
         });
         App.getInstance().queue.add(imageRequest);
-         }
+         }*/
+    }
 
     @Override
     protected int getLayoutId() {
