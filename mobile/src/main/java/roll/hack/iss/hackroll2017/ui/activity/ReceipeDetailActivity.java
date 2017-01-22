@@ -33,11 +33,9 @@ public class ReceipeDetailActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         App.getInstance().speak(mRecipe.getDetailedSteps());
     }
-    
+
     @Override
     protected void initComponent() {
-
-
 
     }
 
