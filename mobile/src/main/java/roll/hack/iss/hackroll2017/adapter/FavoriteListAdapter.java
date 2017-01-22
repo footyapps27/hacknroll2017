@@ -2,7 +2,6 @@ package roll.hack.iss.hackroll2017.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +10,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageRequest;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import roll.hack.iss.hackroll2017.App;
 import roll.hack.iss.hackroll2017.R;
 import roll.hack.iss.hackroll2017.model.Recipe;
 
@@ -104,7 +98,8 @@ public class FavoriteListAdapter extends BaseAdapter {
                     holder.starLayout.addView(starImage);
                 }
                 count++;
-            }App.getInstance().queue.add(imageRequest);
+            }
+          /*  App.getInstance().queue.add(imageRequest);*/
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();

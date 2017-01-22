@@ -1,5 +1,6 @@
 package roll.hack.iss.hackroll2017.ui.activity;
 
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,6 +21,8 @@ public class ReceipeDetailActivity extends BaseActivity {
     ImageView receipeImage;
     @Bind(R.id.reciepe_instruction)
     TextView reciepe_instruction;
+    @Bind(R.id.reciepe_name)
+    TextView reciepe_name;
 
     private Recipe mRecipe;
 
@@ -44,7 +47,10 @@ public class ReceipeDetailActivity extends BaseActivity {
         // getting attached intent data
         mRecipe = (Recipe) args.get("recipe");
         // displaying selected product name
+        reciepe_name.setText(mRecipe.getName());
+        reciepe_name.setPaintFlags(reciepe_name.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         reciepe_instruction.setText(mRecipe.getDetailedSteps());
+
        /// receipeImage.setImageResource(Integer.parseInt(mRecipe.getImgPath()));
         receipeImage.setImageResource(mActivity.getResources().getIdentifier(mRecipe.getImgPath(),"drawable", mActivity.getPackageName()));
         /*final ImageView imageView = receipeImage;
