@@ -22,6 +22,7 @@ import butterknife.Bind;
 import roll.hack.iss.hackroll2017.App;
 import roll.hack.iss.hackroll2017.R;
 import roll.hack.iss.hackroll2017.ui.activity.DashboardActivity;
+import roll.hack.iss.hackroll2017.ui.activity.ManualInputActivity;
 import roll.hack.iss.hackroll2017.ui.activity.ReceipeResultActivity;
 import roll.hack.iss.hackroll2017.ui.base.BaseActivity;
 import roll.hack.iss.hackroll2017.ui.base.BaseFragment;
@@ -37,6 +38,8 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
 
     @Bind(R.id.imageView_voice)
     ImageView voiceButton;
+    @Bind(R.id.imageView_manualEntry)
+    ImageView manualEntry;
 
     private TextToSpeechUtility mTextToSpeechUtility;
     private ArrayList<String> voiceOutput;
@@ -85,6 +88,13 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
                     Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivityForResult(takePicture, REQUEST_CAMERA);
                 }
+            }
+        });
+        manualEntry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ManualInputActivity.class);
+                startActivity(intent);
             }
         });
     }
