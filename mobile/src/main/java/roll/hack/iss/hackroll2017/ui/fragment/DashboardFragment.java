@@ -124,6 +124,7 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
                         }
                     }, 11000);
                 }
+            }
             } else if( (requestCode == 1010 && resultCode == Activity.RESULT_OK)) {
 
 //            this.mVisionOutputLayout.setVisibility(View.VISIBLE);
@@ -132,7 +133,7 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
                     resultAlertDialog();
                     resultSuccess();//            this.setFields(this.mVisionOutputList);
                 }
-            }
+
         }
 
 
